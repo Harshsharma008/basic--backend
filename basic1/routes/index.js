@@ -15,4 +15,15 @@ router.get('/create', async function(req, res, next) {
   res.send(createduser);
 });
 
+// get all the data from the collections
+// router.get('/find', async function(req, res, next) {
+//   let users= await userModel.find();
+//   res.send(users);
+// });
+// find single user of data from collections
+// router.get('/finedOne', async function(req, res, next){
+//   let user = await userModel.findOne({username:"harsh"});
+//   res.send(user);
+// })
+
 module.exports = router;
