@@ -32,8 +32,10 @@ router.get('/', function(req, res, next) {
  });
 
  router.get("/checkban", function(req,res){
-  console.log(req.session);
-  res.send("check kiya hai console dekho"); 
- })
+  if(req.session.ban === true){
+    res.send("you are banned"); 
+  }
+  
+ });
 
 module.exports = router;
