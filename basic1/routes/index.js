@@ -26,16 +26,33 @@ router.get('/', function(req, res, next) {
 //   let user = await userModel.findOne({username:"harsh"});
 //   res.send(user);
 // })
- router.get("/", function(req,res){
-  req.session.ban = true;
-  req.render("index");
- });
 
- router.get("/checkban", function(req,res){
-  if(req.session.ban === true){
-    res.send("you are banned"); 
-  }
+// for setting the value of the session data
+//  router.get("/", function(req,res){
+//   req.session.ban = true;
+//   req.render("index");
+//  });
+
+
+// data checking 
+//  router.get("/checkban", function(req,res){
+//   if(req.session.ban === true){
+//     res.send("you are banned"); 
+//   }
   
- });
+//  });
+
+router.get("/", function(req,res){
+    
+    res.cookie("age",25);
+    console.log(req.cookies);
+    req.render("index");
+    
+   });
+
+   router.get("/cookie", function(req,res){
+    console.log(req.cookies);
+    res.send("cookie received");
+   })
 
 module.exports = router;
